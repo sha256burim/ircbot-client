@@ -1,0 +1,20 @@
+﻿#Internet Documents and guides
+
+#TCP client
+//https://msdn.microsoft.com/en-us/library/system.net.sockets.tcpclient(v=vs.110).aspx?cs-save-lang=1&cs-lang=csharp#code-snippet-2
+
+#String.Contains() 
+//https://msdn.microsoft.com/en-us/library/dy85x1sa(v=vs.110).aspx
+
+# IRC RFC 2812 and Numerics
+//https://tools.ietf.org/html/rfc2812
+//https://www.alien.net.au/irc/irc2numerics.html
+
+#References
+//http://codereview.stackexchange.com/questions/142653/simple-irc-bot-in-c
+//http://stackoverflow.com/questions/507936/how-to-use-string-for-tcpclient-in-c-sharp-instead-of-byte
+
+
+#Rudechat
+
+//http://stackoverflow.com/questions/15653921/get-current-folder-path

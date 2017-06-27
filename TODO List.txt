@@ -1,0 +1,88 @@
+﻿Todo List
+
+1. Make own classes for some special stuff
+
+2. Configure the !rudebot mention so it only recognizes the command with the "!" before it. 
+
+3. Hook it up to the chatter bot through cross console streams. (C# -> C++)
+
+4. Figure out how to stream the text to the chatterbot that comes after "!rudebot"
+
+
+
+
+
+Idea: Log everything what the users say and use that to build a response file so rudebot can respond using their own sentences
+and learn how to use them.
+
+
+
+
+#include <iostream>
+#include <string>
+#include <fstream>
+
+using namespace std;
+
+//Everything commented out we don't need for what we're doing.
+
+class Learner {
+
+public: 
+	//void respond(string phrase); //this was in learner.h
+	//void say(string phrase);
+	////Voice voice
+
+	void respond(string phrase) {
+		fstream memory;
+		memory.open("memory.txt", ios::in); //Open memory file for input
+
+		//Search through the file until the end is reached
+		while (!memory.eof()) { //while not at end of file
+			string identifier;
+			getline(memory, identifier); //Get next phrase
+
+			if (identifier == phrase) {
+				string response;
+				getline(memory, response);
+				//voice.say(response);
+				return;
+			}
+		}
+		memory.close();
+		memory.open("memory.txt", ios::in | ios::app);
+		memory << phrase << endl;
+
+		//voice.say(phrase)
+		string userResponse;
+		cout << "You: ";
+		getline(cin, userResponse); 
+		memory << userResponse << endl;
+		memory.close();
+	}
+
+	/*
+	// This function simply communicates a phrase textually and audibly
+
+void Learner::say(string phrase) {
+	this->voice.say(phrase);
+}
+	*/
+
+};
+
+
+int main() {
+
+	Learner AI;
+
+	for (;;) {
+		cout << "\nYOU";
+		string phrase;
+		getline(cin, phrase);
+
+		cout << "BOT: ";
+		AI.respond(phrase); 
+	}
+
+}
